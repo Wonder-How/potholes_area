@@ -14,8 +14,7 @@
   <a href="#how-it-works">Method</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#results-at-a-glance">Results</a> ·
-  <a href="docs/implementation.md">Implementation</a> ·
-  <a href="#citation">Citation</a>
+  <a href="docs/implementation.md">Implementation</a>
 </p>
 
 Turn an RGB image into a pothole footprint estimate in **square meters**. ACSH recognizes potholes, frozen metric depth supplies scene geometry, and a local supporting-road plane connects image coordinates to calibrated area. Camera parameters and training-derived calibration remain fixed at inference.
@@ -29,7 +28,7 @@ This repository packages the code, frozen ACSH checkpoint, camera configuration 
   <br><sub><b>From image to pothole area.</b> Original image → recognition → metric depth → local plane → calibrated footprint.</sub>
 </p>
 
-The demo shows curated, independent test images at display confidence 0.25; the quantitative area benchmark uses 0.05. It estimates the **projected bounding-box footprint on the local road plane**. [Full 24-second video](docs/assets/from-image-to-area.mp4) · [Media provenance](docs/assets/media_manifest.json).
+The demo shows curated, independent test images at display confidence 0.25; the quantitative area benchmark uses 0.05. It estimates the **projected bounding-box footprint on the local road plane**.
 
 ## How it works
 
@@ -133,22 +132,6 @@ The final controlled runtime study reports **243.63 → 154.02 ms/frame** (**1.5
     ├── PROVENANCE.md        # Research-source mapping and frozen artifact identity
     └── THIRD_PARTY.md       # Upstream projects and licenses
 ```
-
-## Citation
-
-The accompanying manuscript is currently unpublished; publication metadata will be updated when available.
-
-```bibtex
-@unpublished{wang2026recognitionmeasurement,
-  title  = {From Recognition to Measurement: Pothole Area Estimation through Local Road Geometry},
-  author = {Wang, Dehao and Zhu, Haohang and Xu, Bowen and Xu, Yiwen and Liu, Kaiqi},
-  year   = {2026},
-  note   = {Manuscript},
-  url    = {https://github.com/Wonder-How/potholes_area}
-}
-```
-
-Machine-readable citation: [CITATION.cff](CITATION.cff).
 
 ## Acknowledgments and license
 

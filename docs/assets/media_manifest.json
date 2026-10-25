@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generator": "scripts/make_demo_gifs.py",
   "ffmpeg_version": "ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers",
   "sources": {
@@ -14,6 +14,31 @@
       "sha256": "7401c6301dfeceb87fca4d1259a9ed53e3c06fd45a35a807ea1393b3538f830c",
       "duration_seconds": 60.0,
       "description": "GT versus frozen ACSH predictions; two seconds of full field of view followed by four seconds of the same ROI per example."
+    },
+    "area_titleless_frames": {
+      "description": "Lossless native v3 compositions rerendered from the original cached inputs with only the main title drawing call omitted; no inference or estimator changes.",
+      "original_renderer": "render_area_demo_v3.py",
+      "original_renderer_sha256": "447e5bfe5faf74bd8825402cedef32da05f8751742968b8b46fd3ce98e0ef35a",
+      "titleless_renderer": "render_area_demo_v3_titleless_20261025.py",
+      "titleless_renderer_sha256": "844116af83cf10937840efbdeb2d4f81bcda0ba0939ee996edb97a9d33796d4e",
+      "width": 1920,
+      "height": 1080,
+      "duration_per_frame_seconds": 4,
+      "pixel_validation": "Each native frame differs from its original only in 6,819 main-title glyph pixels, within x=[41,584), y=[38,72). All other pixels match exactly. The native header background is uniformly RGB(243,245,247).",
+      "frames": [
+        {
+          "file": "demo-frames/01.png",
+          "case_id": "01",
+          "sha256": "827b0d68fb2e9e1c794e1995903310761fe3bafb2c0255b6c021cd0dc6fc125e",
+          "original_frame_sha256": "3b67736ad8866f79931b36f41dd6ec2fb6fde356bddc3188059aee5bf256fe6d"
+        },
+        {
+          "file": "demo-frames/02.png",
+          "case_id": "02",
+          "sha256": "e0a0101c08a983d15067cba256e36378d70f2faf4286d8b885b8305880ed315d",
+          "original_frame_sha256": "cee6bd445cbf20dc0fc16a159e7f9fbbd82690d0d34f8571f177f5a59d3b2e6a"
+        }
+      ]
     }
   },
   "provenance": {
@@ -28,7 +53,7 @@
     "reference": "LiDAR-derived evaluation reference areas, not surveyed ground truth; used only for comparison.",
     "plane_panel": "Native rectified RGB projected onto the actual fitted road plane, predicted mask contour, unmodified SVD support points and projected-box outline; appearance projection, not cavity reconstruction.",
     "depth_panel": "Frozen monocular predicted metric depth, not GT depth; per-example finite-positive P2–P98 display scale, fixed within each example.",
-    "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization. The README GIF and static preview have the header title removed using a background fill at output x=16,y=12,width=450,height=32. Original predictions, numbers, panels, frame counter and timing are preserved."
+    "transforms": "The README GIF and preview are exported directly from bundled lossless native frames. The original renderer was rerun with only the main-title drawing call omitted, retaining its original uniform background. Each example is held for four seconds, downscaled with Lanczos and palette-quantized for 10 fps GIF playback. All other native pixels, predictions, numbers, panels and counters are unchanged. Archived GIFs retain their original video extraction, frame sampling, scaling and quantization."
   },
   "area_cases": [
     {
@@ -83,7 +108,7 @@
   "assets": [
     {
       "file": "area-pipeline.gif",
-      "source": "area",
+      "source": "area_titleless_frames",
       "start_seconds": 0,
       "duration_seconds": 8,
       "width": 960,
@@ -92,11 +117,10 @@
         "01",
         "02"
       ],
-      "remove_header_title": true,
-      "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02. Header title removed.",
+      "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; native examples 01–02 rendered without a main title.",
       "height": 540,
-      "bytes": 289107,
-      "sha256": "87968e37bc87e3c7658a36077b79057fa23d6e8127b727f855ea3c49a8f0f540",
+      "bytes": 164422,
+      "sha256": "ddddb450d7a4a9e58def7345b05a6a220c8589d2299c58af717ade279d9a4855",
       "loop": "infinite"
     },
     {
@@ -149,14 +173,13 @@
     },
     {
       "file": "area-pipeline-preview.png",
-      "source": "area",
-      "timestamp_seconds": 2,
+      "source": "area_titleless_frames",
+      "case_id": "01",
       "width": 960,
       "height": 540,
-      "remove_header_title": true,
-      "bytes": 266069,
-      "sha256": "cde11a8893c4f04279310f248711650d969d42382bb83421d9ec591fdbcc844e",
-      "caption": "Final v3 example 01, downscaled for a static preview with the header title removed."
+      "bytes": 260634,
+      "sha256": "d2b4675d4b82c60c8245568862e4e4c4db7dbe3749b3a3b9c54efe953244f68e",
+      "caption": "Native v3 example 01, rendered without a main title and downscaled for a static preview."
     }
   ]
 }

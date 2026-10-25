@@ -10,7 +10,7 @@
 
 ![从图像到坑洼面积](docs/assets/area-pipeline.gif)
 
-演示来自此前视频中的精选独立测试图像，显示置信度为 0.25；定量面积实验使用 0.05。最终面积来自**预测框在局部路面上的投影足迹**。[完整 24 秒视频](docs/assets/from-image-to-area.mp4) · [媒体记录](docs/assets/media_manifest.json)。
+演示来自此前视频中的精选独立测试图像，显示置信度为 0.25；定量面积实验使用 0.05。最终面积来自**预测框在局部路面上的投影足迹**。
 
 ## 方法
 
@@ -66,8 +66,6 @@ pothole-measure infer \
 
 完整基线、数据划分、硬件与计时范围、已知局限见[实验结果文档](docs/RESULTS.md)。
 
-## 引用与许可
-
-作者：Dehao Wang、Haohang Zhu、Bowen Xu、Yiwen Xu、Kaiqi Liu。引用格式见 [README](README.md#citation) 与 [CITATION.cff](CITATION.cff)。
+## 许可
 
 代码使用 [AGPL-3.0](LICENSE)，保留上游依赖的许可信息。数据集和深度模型由原发布方单独提供，详见[第三方说明](docs/THIRD_PARTY.md)。
