@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/assets/hero.svg" alt="From recognition to measurement: pothole area estimation through local road geometry" width="100%">
-</p>
-
 <h1 align="center">From Recognition to Measurement</h1>
 <p align="center"><b>Pothole Area Estimation through Local Road Geometry</b></p>
 <p align="center">Dehao Wang · Haohang Zhu · Bowen Xu · Yiwen Xu · Kaiqi Liu</p>
@@ -9,8 +5,6 @@
 <p align="center">
   <a href="#quick-start"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.10+"></a>
   <a href="https://github.com/Wonder-How/potholes_area_demo.github.io/actions/workflows/ci.yml"><img src="https://github.com/Wonder-How/potholes_area_demo.github.io/actions/workflows/ci.yml/badge.svg" alt="Geometry and CLI checks"></a>
-  <a href="docs/PROVENANCE.md"><img src="https://img.shields.io/badge/Input-RGB-168B76?style=flat-square" alt="RGB input"></a>
-  <a href="weights/SHA256SUMS"><img src="https://img.shields.io/badge/ACSH-checkpoint_included-D99036?style=flat-square" alt="ACSH checkpoint included"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-AGPL--3.0-6F77C5?style=flat-square" alt="Code license AGPL-3.0"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/文档-简体中文-486778?style=flat-square" alt="简体中文文档"></a>
 </p>
@@ -35,40 +29,14 @@ This repository packages the code, frozen ACSH checkpoint, camera configuration 
   <br><sub><b>From image to pothole area.</b> Original image → recognition → metric depth → local plane → calibrated footprint.</sub>
 </p>
 
-<table>
-  <tr>
-    <td width="50%" align="center"><img src="docs/assets/area-geometry.gif" alt="Road-plane and area examples 3 and 4" width="100%"><br><b>Local geometry, visible.</b><br><sub>Actual RGB texture and predicted contours on the supporting-road plane.</sub></td>
-    <td width="50%" align="center"><img src="docs/assets/area-multi-object.gif" alt="Area examples 5 and 6, with multiple potholes visible" width="100%"><br><b>More than one target.</b><br><sub>All above-threshold predictions remain visible in the recognition view.</sub></td>
-  </tr>
-</table>
-
-<details>
-<summary><b>Recognition close-up: original image and predicted segmentation</b></summary>
-<p align="center"><img src="docs/assets/segmentation-comparison.gif" alt="Recognition demonstration moving from full scene to the original region of interest" width="800"></p>
-</details>
-
-These GIFs retain the frames and numerical results from the earlier videos. They show **curated, independent test images**, with display confidence 0.25; the quantitative area benchmark uses 0.05. Playback speed is for presentation. The estimated quantity is the **projected bounding-box footprint on the local road plane**. LiDAR supplies offline references; inference uses RGB. See the [media manifest](docs/assets/media_manifest.json), [full 24-second video](docs/assets/from-image-to-area.mp4) and [GIF export script](scripts/make_demo_gifs.py).
+The demo shows curated, independent test images at display confidence 0.25; the quantitative area benchmark uses 0.05. It estimates the **projected bounding-box footprint on the local road plane**. [Full 24-second video](docs/assets/from-image-to-area.mp4) · [Media provenance](docs/assets/media_manifest.json).
 
 ## How it works
 
-```mermaid
-flowchart LR
-    RGB[RGB image] --> ACSH[ACSH instance segmentation]
-    RGB --> RECT[Camera rectification]
-    RECT --> DEPTH[Frozen metric depth]
-    ACSH --> BOX[Predicted bounding box]
-    BOX --> RING[Local road support]
-    DEPTH --> RING
-    RING --> PLANE[Road-plane fit]
-    BOX --> PROJ[Ray / plane projection]
-    PLANE --> PROJ
-    PROJ --> CAL[Training-only calibration]
-    CAL --> AREA[Area in m²]
-    classDef input fill:#e7f7f2,stroke:#168b76,color:#103f36
-    classDef output fill:#fff0dd,stroke:#d99036,color:#61401c
-    class RGB input
-    class AREA output
-```
+<p align="center">
+  <a href="docs/assets/paper/structure_revised.pdf"><img src="docs/assets/paper/structure_revised.png" alt="Original manuscript figure: recognition-to-measurement framework through local road geometry" width="100%"></a>
+  <br><sub>Original framework figure from the manuscript. Click for the PDF.</sub>
+</p>
 
 1. **Recognize.** A YOLOv8n-seg front end adds a supervised parallel P2 branch and ACmix at the mask-prototype input. Its directly predicted box feeds the adopted area path.
 2. **Recover local geometry.** Rectify the camera image, estimate metric depth, and fit a road plane using support around the predicted box. Keep the original fallback when plane projection is unavailable.
@@ -156,7 +124,7 @@ The final controlled runtime study reports **243.63 → 154.02 ms/frame** (**1.5
 ├── src/pothole_measurement/  # Geometry, calibration, inference and training
 ├── configs/                 # Frozen ACSH recipe, M2S camera and area calibration
 ├── weights/                 # Released ACSH checkpoint and SHA-256 checksum
-├── docs/assets/             # Original-video GIFs, hero and media manifest
+├── docs/assets/             # Video demo, original paper figure and media manifest
 ├── scripts/make_demo_gifs.py
 ├── tests/                   # Analytic geometry and training-only calibration checks
 └── docs/

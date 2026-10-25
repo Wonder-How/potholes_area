@@ -1,5 +1,3 @@
-<p align="center"><img src="docs/assets/hero.svg" alt="从坑洼识别到面积测量" width="100%"></p>
-
 # 从识别到测量：基于局部路面几何的坑洼面积估计
 
 [English](README.md) · [方法与接口](docs/implementation.md) · [实验结果](docs/RESULTS.md) · [代码与权重来源](docs/PROVENANCE.md)
@@ -12,18 +10,13 @@
 
 ![从图像到坑洼面积](docs/assets/area-pipeline.gif)
 
-| 局部路面几何 | 多目标场景 |
-|:--:|:--:|
-| ![局部路面几何与面积](docs/assets/area-geometry.gif) | ![多目标面积演示](docs/assets/area-multi-object.gif) |
+演示来自此前视频中的精选独立测试图像，显示置信度为 0.25；定量面积实验使用 0.05。最终面积来自**预测框在局部路面上的投影足迹**。[完整 24 秒视频](docs/assets/from-image-to-area.mp4) · [媒体记录](docs/assets/media_manifest.json)。
 
-<details>
-<summary>展开查看检测与分割画面</summary>
+## 方法
 
-![检测与分割对比](docs/assets/segmentation-comparison.gif)
+[![论文原始框架图](docs/assets/paper/structure_revised.png)](docs/assets/paper/structure_revised.pdf)
 
-</details>
-
-四段 GIF 均由此前视频中的真实画面转换，未改动预测和面积数值。画面展示精选的独立测试图像，置信度为 0.25；定量面积实验使用 0.05。动图播放速度仅用于展示。最终面积来自**预测框在局部路面上的投影足迹**；LiDAR 参考仅用于离线标定和评估。原始素材与导出参数见[媒体记录](docs/assets/media_manifest.json)，另附[完整 24 秒视频](docs/assets/from-image-to-area.mp4)。
+直接使用论文现有框架图，点击查看 PDF。
 
 ## 快速运行
 

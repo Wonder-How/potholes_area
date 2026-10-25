@@ -83,7 +83,7 @@ All 225 pairs / 1,095 predicted-box records have identical numeric outputs and c
 
 ## GIFs and display thresholds
 
-The README GIFs come from previously rendered qualitative demonstrations at confidence **0.25**, rather than the evaluation operating point of **0.05**. They retain the existing predictions, displayed numbers and reference comparisons. The source video presents independent annotated images with fixed holds; 24 FPS in that video and 10 FPS in the GIFs describe playback only. They do not show continuous driving, tracking or measured inference throughput. See [the media manifest](assets/media_manifest.json) for source hashes, samples and transformations.
+The README demo comes from a previously rendered qualitative demonstration at confidence **0.25**, rather than the evaluation operating point of **0.05**. It retains the existing predictions, displayed numbers and reference comparisons. The source video presents independent annotated images with fixed holds; 24 FPS in that video and 10 FPS in the GIF describe playback only. It does not show continuous driving, tracking or measured inference throughput. See [the media manifest](assets/media_manifest.json) for source hashes, samples and transformations, including the additional archived exports.
 
 The examples are curated visual explanations. Their errors cannot stand in for the full benchmark. Reference overlays labeled “GT” in the source presentations are manual annotations or LiDAR-derived references, not surveyed physical ground truth.
 
