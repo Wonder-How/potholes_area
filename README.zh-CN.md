@@ -23,7 +23,7 @@
 需要 Python 3.10 或更高版本；发布验证使用 Python 3.11。
 
 ```bash
-git clone https://github.com/Wonder-How/potholes_area_demo.github.io.git pothole-measurement
+git clone https://github.com/Wonder-How/potholes_area.git pothole-measurement
 cd pothole-measurement
 python -m venv .venv
 source .venv/bin/activate

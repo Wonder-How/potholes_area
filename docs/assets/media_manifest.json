@@ -28,7 +28,7 @@
     "reference": "LiDAR-derived evaluation reference areas, not surveyed ground truth; used only for comparison.",
     "plane_panel": "Native rectified RGB projected onto the actual fitted road plane, predicted mask contour, unmodified SVD support points and projected-box outline; appearance projection, not cavity reconstruction.",
     "depth_panel": "Frozen monocular predicted metric depth, not GT depth; per-example finite-positive P2–P98 display scale, fixed within each example.",
-    "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization only. Original predictions, numbers, panels and timing are preserved."
+    "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization. The README GIF and static preview have the header title removed using a background fill at output x=16,y=12,width=450,height=32. Original predictions, numbers, panels, frame counter and timing are preserved."
   },
   "area_cases": [
     {
@@ -92,10 +92,11 @@
         "01",
         "02"
       ],
-      "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02.",
+      "remove_header_title": true,
+      "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02. Header title removed.",
       "height": 540,
-      "bytes": 291563,
-      "sha256": "33ba2ec3ba52d836deab6c2158c487924098236dc7063bfaaab6f2e0c556cf27",
+      "bytes": 289107,
+      "sha256": "87968e37bc87e3c7658a36077b79057fa23d6e8127b727f855ea3c49a8f0f540",
       "loop": "infinite"
     },
     {
@@ -152,9 +153,10 @@
       "timestamp_seconds": 2,
       "width": 960,
       "height": 540,
-      "bytes": 265632,
-      "sha256": "eb7401b7530a0f42399878a911810b73b2e1dd8a536cf8480fc7ae6d1dc8b1c2",
-      "caption": "Unmodified final v3 example 01, downscaled for a static preview."
+      "remove_header_title": true,
+      "bytes": 266069,
+      "sha256": "cde11a8893c4f04279310f248711650d969d42382bb83421d9ec591fdbcc844e",
+      "caption": "Final v3 example 01, downscaled for a static preview with the header title removed."
     }
   ]
 }

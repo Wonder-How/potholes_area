@@ -24,7 +24,7 @@ The “research source” column uses relative archive names for traceability. I
 | `configs/m2s-camera.json` | `p1130_area_validation/m2s_lidar_reference_area.py`; originally the M2S-RoAD `toimage.py` calibration example | Separate fixed camera constants from the implementation |
 | `configs/m2s-calibration.json` | `m2s_improved_end_to_end/calibration.json` | Preserve frozen calibration coefficients |
 | `weights/acsh-segmentation.pt` | `p2_acmix_segrefine_20261017/parallel_stable_p2_acmix_s1130/weights/best.pt` | Rename for distribution; do not modify checkpoint contents |
-| `scripts/make_demo_gifs.py`, `docs/assets/*.gif` | Previously rendered area and recognition demonstration videos | Extract temporal intervals, sample frames, resize proportionally and quantize GIF palettes |
+| `scripts/make_demo_gifs.py`, `docs/assets/*.gif` | Previously rendered area and recognition demonstration videos | Extract temporal intervals, sample frames, resize proportionally and quantize GIF palettes; remove the header title in the README GIF and its static preview |
 | `docs/assets/paper/structure_revised.png`, `structure_revised.pdf` | Current manuscript `Figure/structure_revised.png` and `Figure/structure_revised.pdf` | Exact file copies of the original framework figure; no redrawing or restyling |
 
 The archived checkpoint contains Python class references to the original module names. Compatibility aliases retain those names while the release code lives in `pothole_measurement.models`. Changing class definitions or silently substituting a different architecture can make a checkpoint load incorrectly even when a filename is unchanged.

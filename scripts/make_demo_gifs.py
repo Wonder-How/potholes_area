@@ -45,11 +45,14 @@ AREA_CASES = [
 ]
 
 CLIPS = [
-    {"file": "area-pipeline.gif", "source": "area", "start_seconds": 0, "duration_seconds": 8, "width": 960, "fps": 10, "case_ids": ["01", "02"], "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02."},
+    {"file": "area-pipeline.gif", "source": "area", "start_seconds": 0, "duration_seconds": 8, "width": 960, "fps": 10, "case_ids": ["01", "02"], "remove_header_title": True, "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02. Header title removed."},
     {"file": "area-geometry.gif", "source": "area", "start_seconds": 8, "duration_seconds": 8, "width": 800, "fps": 10, "case_ids": ["03", "04"], "caption": "The same five-panel area pipeline on examples 03–04."},
     {"file": "area-multi-object.gif", "source": "area", "start_seconds": 16, "duration_seconds": 8, "width": 800, "fps": 10, "case_ids": ["05", "06"], "caption": "Multi-object scenes; the final area refers to the selected matched target, examples 05–06."},
     {"file": "segmentation-comparison.gif", "source": "recognition", "start_seconds": 0, "duration_seconds": 6, "width": 800, "fps": 10, "sample": "Overcast/camera_4804port_a_cam_1-1688437343.197702907", "caption": "Manual GT versus frozen ACSH prediction; full field of view followed by the same enlarged ROI."},
 ]
+
+# At 960 pixels wide, this region contains only the headline above the panels.
+HEADER_TITLE_FILTER = "drawbox=x=16:y=12:w=450:h=32:color=0xf3f5f7:t=fill"
 
 
 def run(*args):
@@ -90,11 +93,19 @@ def main():
     assets = []
     for clip in CLIPS:
         output = args.output_dir / clip["file"]
+        palette_output = "[base]" if clip.get("remove_header_title") else "[out]"
         filters = (
             f"[0:v]fps={clip['fps']},scale={clip['width']}:-1:flags=lanczos,split[a][b];"
             "[a]palettegen=max_colors=192:stats_mode=diff[p];"
-            "[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle[out]"
+            f"[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle{palette_output}"
         )
+        if clip.get("remove_header_title"):
+            # Fill only the headline region above the five panels.
+            filters += (
+                f";[base]format=rgb24,{HEADER_TITLE_FILTER},split[c][d];"
+                "[c]palettegen=max_colors=256:reserve_transparent=0:stats_mode=full[q];"
+                "[d][q]paletteuse=dither=none[out]"
+            )
         run("ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-threads", "4",
             "-ss", str(clip["start_seconds"]), "-t", str(clip["duration_seconds"]),
             "-i", str(paths[clip["source"]]), "-filter_complex_threads", "1",
@@ -112,8 +123,8 @@ def main():
 
     poster = args.output_dir / "area-pipeline-preview.png"
     run("ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-ss", "2", "-i", str(paths["area"]),
-        "-frames:v", "1", "-vf", "scale=960:-1:flags=lanczos", "-threads", "1", str(poster))
-    assets.append({"file": poster.name, "source": "area", "timestamp_seconds": 2, "width": 960, "height": 540, "bytes": poster.stat().st_size, "sha256": sha256(poster), "caption": "Unmodified final v3 example 01, downscaled for a static preview."})
+        "-frames:v", "1", "-vf", f"scale=960:-1:flags=lanczos,{HEADER_TITLE_FILTER}", "-threads", "1", str(poster))
+    assets.append({"file": poster.name, "source": "area", "timestamp_seconds": 2, "width": 960, "height": 540, "remove_header_title": True, "bytes": poster.stat().st_size, "sha256": sha256(poster), "caption": "Final v3 example 01, downscaled for a static preview with the header title removed."})
 
     manifest = {
         "schema_version": 1,
@@ -132,7 +143,7 @@ def main():
             "reference": "LiDAR-derived evaluation reference areas, not surveyed ground truth; used only for comparison.",
             "plane_panel": "Native rectified RGB projected onto the actual fitted road plane, predicted mask contour, unmodified SVD support points and projected-box outline; appearance projection, not cavity reconstruction.",
             "depth_panel": "Frozen monocular predicted metric depth, not GT depth; per-example finite-positive P2–P98 display scale, fixed within each example.",
-            "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization only. Original predictions, numbers, panels and timing are preserved.",
+            "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization. The README GIF and static preview have the header title removed using a background fill at output x=16,y=12,width=450,height=32. Original predictions, numbers, panels, frame counter and timing are preserved.",
         },
         "area_cases": [
             {"case_id": case_id, "sample": sample, "source_start_seconds": i * 4, "source_duration_seconds": 4, "reference_area_m2": reference, "estimated_area_m2": estimate}

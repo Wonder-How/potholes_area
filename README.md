@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#quick-start"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.10+"></a>
-  <a href="https://github.com/Wonder-How/potholes_area_demo.github.io/actions/workflows/ci.yml"><img src="https://github.com/Wonder-How/potholes_area_demo.github.io/actions/workflows/ci.yml/badge.svg" alt="Geometry and CLI checks"></a>
+  <a href="https://github.com/Wonder-How/potholes_area/actions/workflows/ci.yml"><img src="https://github.com/Wonder-How/potholes_area/actions/workflows/ci.yml/badge.svg" alt="Geometry and CLI checks"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-AGPL--3.0-6F77C5?style=flat-square" alt="Code license AGPL-3.0"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/文档-简体中文-486778?style=flat-square" alt="简体中文文档"></a>
 </p>
@@ -49,7 +49,7 @@ The core package also accepts existing boxes and rectified depth arrays, so geom
 Python 3.10+; Python 3.11 was used for release verification.
 
 ```bash
-git clone https://github.com/Wonder-How/potholes_area_demo.github.io.git pothole-measurement
+git clone https://github.com/Wonder-How/potholes_area.git pothole-measurement
 cd pothole-measurement
 python -m venv .venv
 source .venv/bin/activate
@@ -144,7 +144,7 @@ The accompanying manuscript is currently unpublished; publication metadata will 
   author = {Wang, Dehao and Zhu, Haohang and Xu, Bowen and Xu, Yiwen and Liu, Kaiqi},
   year   = {2026},
   note   = {Manuscript},
-  url    = {https://github.com/Wonder-How/potholes_area_demo.github.io}
+  url    = {https://github.com/Wonder-How/potholes_area}
 }
 ```
 

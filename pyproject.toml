@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/Wonder-How/potholes_area_demo.github.io"
+Repository = "https://github.com/Wonder-How/potholes_area"
 
 [project.optional-dependencies]
 # Authors' checkpoint classes use these Ultralytics internals. Other releases

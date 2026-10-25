@@ -14,7 +14,7 @@ authors:
   - family-names: Liu
     given-names: Kaiqi
 license: AGPL-3.0-only
-repository-code: "https://github.com/Wonder-How/potholes_area_demo.github.io"
+repository-code: "https://github.com/Wonder-How/potholes_area"
 keywords:
   - pothole area estimation
   - instance segmentation
