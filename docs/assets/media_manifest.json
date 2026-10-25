@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "generator": "scripts/make_demo_gifs.py",
+  "ffmpeg_version": "ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers",
+  "sources": {
+    "area": {
+      "filename": "M2S_RGB_to_Area_1080p_v3_2x.mp4",
+      "sha256": "c53fe5bf0f05d5dc2746b9f41402325295469fa82e6b904b04f1f8b5d4e5c96c",
+      "duration_seconds": 24.0,
+      "description": "Final v3: six independent held-out examples, four seconds each; all five panels visible simultaneously."
+    },
+    "recognition": {
+      "filename": "M2S_GT_vs_ACSH_1080p.mp4",
+      "sha256": "7401c6301dfeceb87fca4d1259a9ed53e3c06fd45a35a807ea1393b3538f830c",
+      "duration_seconds": 60.0,
+      "description": "GT versus frozen ACSH predictions; two seconds of full field of view followed by four seconds of the same ROI per example."
+    }
+  },
+  "provenance": {
+    "dataset": "M2S-RoAD, held-out test split",
+    "model": "Frozen paper ACSH (P2 + ACmix) instance segmenter",
+    "weights_sha256": "e5a809756eb4cdc0b86ee45343925a40cac2dcf7ead5311d23219ec5d7735f2a",
+    "confidence_threshold": 0.25,
+    "predictions": "All predictions at or above the uniform display threshold are retained in the source overview; no GT-based prediction correction or suppression.",
+    "selection": "Curated qualitative examples; the GIFs are not a representative accuracy or runtime benchmark.",
+    "temporal_scope": "Sparse independent annotated images with fixed presentation holds; no continuous driving footage, tracking, interpolated source frames or inference-FPS claim.",
+    "area_definition": "Bounding-box planimetric footprint from fisheye rectification and local road-plane intersection, followed by frozen training-only log calibration; not mask area, cavity surface area or volume.",
+    "reference": "LiDAR-derived evaluation reference areas, not surveyed ground truth; used only for comparison.",
+    "plane_panel": "Native rectified RGB projected onto the actual fitted road plane, predicted mask contour, unmodified SVD support points and projected-box outline; appearance projection, not cavity reconstruction.",
+    "depth_panel": "Frozen monocular predicted metric depth, not GT depth; per-example finite-positive P2–P98 display scale, fixed within each example.",
+    "transforms": "Temporal extraction, 24-to-10 fps sampling, proportional Lanczos downscaling and GIF palette quantization only. Original predictions, numbers, panels and timing are preserved."
+  },
+  "area_cases": [
+    {
+      "case_id": "01",
+      "sample": "Overcast/camera_4073port_a_cam_1-1688437270.095890452",
+      "source_start_seconds": 0,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.35663455453363113,
+      "estimated_area_m2": 0.3587742341733941
+    },
+    {
+      "case_id": "02",
+      "sample": "Cloudy/camera_8554port_a_cam_1-1688520710.821112854",
+      "source_start_seconds": 4,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.26866948831482773,
+      "estimated_area_m2": 0.23262974907305478
+    },
+    {
+      "case_id": "03",
+      "sample": "Cloudy/camera_2726port_a_cam_1-1688532419.915283912",
+      "source_start_seconds": 8,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.1767443847562874,
+      "estimated_area_m2": 0.20065378143170612
+    },
+    {
+      "case_id": "04",
+      "sample": "Overcast/camera_598port_a_cam_1-1688436922.589267656",
+      "source_start_seconds": 12,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.21973275130300607,
+      "estimated_area_m2": 0.2582104903225393
+    },
+    {
+      "case_id": "05",
+      "sample": "Cloudy/camera_16533port_a_cam_1-1688521508.716086313",
+      "source_start_seconds": 16,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.1537650606232006,
+      "estimated_area_m2": 0.16253534853878515
+    },
+    {
+      "case_id": "06",
+      "sample": "Cloudy/camera_14119port_a_cam_1-1688521267.314475556",
+      "source_start_seconds": 20,
+      "source_duration_seconds": 4,
+      "reference_area_m2": 0.20440682304766256,
+      "estimated_area_m2": 0.21797912251798301
+    }
+  ],
+  "assets": [
+    {
+      "file": "area-pipeline.gif",
+      "source": "area",
+      "start_seconds": 0,
+      "duration_seconds": 8,
+      "width": 960,
+      "fps": 10,
+      "case_ids": [
+        "01",
+        "02"
+      ],
+      "caption": "RGB, instance segmentation, predicted depth, fitted road plane and calibrated box area; examples 01–02.",
+      "height": 540,
+      "bytes": 291563,
+      "sha256": "33ba2ec3ba52d836deab6c2158c487924098236dc7063bfaaab6f2e0c556cf27",
+      "loop": "infinite"
+    },
+    {
+      "file": "area-geometry.gif",
+      "source": "area",
+      "start_seconds": 8,
+      "duration_seconds": 8,
+      "width": 800,
+      "fps": 10,
+      "case_ids": [
+        "03",
+        "04"
+      ],
+      "caption": "The same five-panel area pipeline on examples 03–04.",
+      "height": 450,
+      "bytes": 246637,
+      "sha256": "bf1b6f507359606df36fe092e0ffed10e5ac5a30fbcefc6ff5a6b9de708a3dbf",
+      "loop": "infinite"
+    },
+    {
+      "file": "area-multi-object.gif",
+      "source": "area",
+      "start_seconds": 16,
+      "duration_seconds": 8,
+      "width": 800,
+      "fps": 10,
+      "case_ids": [
+        "05",
+        "06"
+      ],
+      "caption": "Multi-object scenes; the final area refers to the selected matched target, examples 05–06.",
+      "height": 450,
+      "bytes": 254946,
+      "sha256": "8daba736afde0978b214ffd88a92203f49790006b78fe47a762bf555a592d4bf",
+      "loop": "infinite"
+    },
+    {
+      "file": "segmentation-comparison.gif",
+      "source": "recognition",
+      "start_seconds": 0,
+      "duration_seconds": 6,
+      "width": 800,
+      "fps": 10,
+      "sample": "Overcast/camera_4804port_a_cam_1-1688437343.197702907",
+      "caption": "Manual GT versus frozen ACSH prediction; full field of view followed by the same enlarged ROI.",
+      "height": 450,
+      "bytes": 297636,
+      "sha256": "fb89ce06b51c2237233a1409af11dc0bdfc9bab5a4d5239b4b52381443122675",
+      "loop": "infinite"
+    },
+    {
+      "file": "area-pipeline-preview.png",
+      "source": "area",
+      "timestamp_seconds": 2,
+      "width": 960,
+      "height": 540,
+      "bytes": 265632,
+      "sha256": "eb7401b7530a0f42399878a911810b73b2e1dd8a536cf8480fc7ae6d1dc8b1c2",
+      "caption": "Unmodified final v3 example 01, downscaled for a static preview."
+    }
+  ]
+}

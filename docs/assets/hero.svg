@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="580" viewBox="0 0 1440 580" role="img" aria-labelledby="title desc">
+  <title id="title">From recognition to measurement</title>
+  <desc id="desc">Pothole area estimation through local road geometry. A schematic road footprint connects RGB recognition, road geometry, and calibrated area.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101e31"/><stop offset="1" stop-color="#07111e"/></linearGradient>
+    <linearGradient id="road" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#21374a"/><stop offset="1" stop-color="#132437"/></linearGradient>
+    <linearGradient id="line"><stop stop-color="#68e3d2"/><stop offset="1" stop-color="#b8f8bb"/></linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#7190a7" opacity=".15"/></pattern>
+  </defs>
+  <rect width="1440" height="580" rx="26" fill="url(#bg)"/>
+  <rect width="1440" height="580" rx="26" fill="url(#dots)"/>
+  <path d="M0 566H1440" stroke="url(#line)" stroke-width="3"/>
+  <g font-family="Inter,DejaVu Sans,Arial,sans-serif">
+    <rect x="64" y="54" width="10" height="10" rx="2" fill="#80e9d1"/>
+    <text x="89" y="66" fill="#a8c0cf" font-size="16" letter-spacing="3">ROAD GEOMETRY / RESEARCH CODE</text>
+    <text x="60" y="164" fill="#f0f6fb" font-size="66" font-weight="700" letter-spacing="-2">From recognition</text>
+    <text x="60" y="246" fill="#8bead1" font-size="66" font-weight="700" letter-spacing="-2">to measurement.</text>
+    <text x="64" y="304" fill="#adbdca" font-size="22">Pothole area estimation through local road geometry</text>
+    <text x="64" y="343" fill="#6f899c" font-size="18">One RGB image. A local road plane. A metric footprint.</text>
+    <g transform="translate(64 408)">
+      <rect width="168" height="48" rx="24" fill="#173332" stroke="#356d60"/>
+      <text x="84" y="30" fill="#a4ecd5" font-size="15" font-weight="600" text-anchor="middle">ACSH recognition</text>
+      <path d="M182 24h30m-7-5 7 5-7 5" fill="none" stroke="#668494" stroke-width="1.7"/>
+      <rect x="226" width="166" height="48" rx="24" fill="#162c43" stroke="#3e586e"/>
+      <text x="309" y="30" fill="#bdd7ec" font-size="15" font-weight="600" text-anchor="middle">Road-plane fit</text>
+      <path d="M406 24h30m-7-5 7 5-7 5" fill="none" stroke="#668494" stroke-width="1.7"/>
+      <rect x="450" width="146" height="48" rx="24" fill="#352b23" stroke="#796044"/>
+      <text x="523" y="30" fill="#ffd49c" font-size="15" font-weight="600" text-anchor="middle">Area in m²</text>
+    </g>
+    <text x="64" y="526" fill="#6b8599" font-size="13" letter-spacing="2">RGB AT INFERENCE · FROZEN METRIC DEPTH · TRAINING-ONLY CALIBRATION</text>
+    <g transform="translate(854 67)">
+      <path d="M224 56 478 268 272 425 26 225Z" fill="url(#road)" stroke="#3c5367" stroke-width="1.5"/>
+      <g fill="none" stroke="#426075" stroke-width="1" opacity=".55">
+        <path d="m75 191 246 197m-197-234 246 197m-197-234 246 197m-197-234 246 197"/>
+        <path d="m76 265 198-165m-149 205 198-165m-149 205 198-165m-149 205 198-165"/>
+      </g>
+      <path d="m224 56 31 26-198 166-31-23Z" fill="#456379" opacity=".35"/>
+      <path d="m447 243 31 25-206 157-30-25Z" fill="#456379" opacity=".35"/>
+      <path d="m222 148 110 88-126 97-108-88Z" fill="#74e0bd" fill-opacity=".07" stroke="#8ae8ce" stroke-width="1.7" stroke-dasharray="6 6"/>
+      <path d="m212 187 28-2 26 18 8 16 29 20-19 17-33 5-17 21-34-4-32-22-16-28 23-23Z" fill="#9ff0c6" fill-opacity=".18" stroke="#9ff0c6" stroke-width="2.5"/>
+      <g fill="#ffd5a1" opacity=".85">
+        <circle cx="158" cy="192" r="2.5"/><circle cx="195" cy="167" r="2.5"/><circle cx="261" cy="173" r="2.5"/><circle cx="303" cy="201" r="2.5"/>
+        <circle cx="331" cy="235" r="2.5"/><circle cx="301" cy="282" r="2.5"/><circle cx="260" cy="308" r="2.5"/><circle cx="211" cy="342" r="2.5"/>
+        <circle cx="159" cy="307" r="2.5"/><circle cx="121" cy="276" r="2.5"/><circle cx="105" cy="235" r="2.5"/>
+      </g>
+      <path d="M238 1v114m-14-14 14 14 14-14M238 115l-25 88m25-88 37 104" stroke="#74b9cf" stroke-width="1.5" fill="none" stroke-dasharray="5 6"/>
+      <rect x="197" y="-2" width="82" height="33" rx="8" fill="#263f54" stroke="#516a7c"/>
+      <circle cx="238" cy="14" r="7" fill="none" stroke="#b6d6e9" stroke-width="2"/>
+      <path d="m300 258 51 45h109" fill="none" stroke="#8ae8ce" stroke-width="1.5"/>
+      <rect x="339" y="307" width="147" height="62" rx="11" fill="#142c31" stroke="#407467"/>
+      <text x="413" y="331" fill="#98b5af" font-size="11" letter-spacing="1.5" text-anchor="middle">METRIC FOOTPRINT</text>
+      <text x="413" y="354" fill="#a7efcc" font-size="19" font-weight="600" text-anchor="middle">Area · m²</text>
+      <text x="240" y="465" fill="#658195" font-size="12" letter-spacing="2" text-anchor="middle">LOCAL ROAD-PLANE SCHEMATIC</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+{
+  "name": "M2S-RoAD released raw fisheye camera",
+  "model": "fisheye",
+  "image_size": [
+    1920,
+    1208
+  ],
+  "raw_k": [
+    [
+      968.79741,
+      0,
+      954.078232
+    ],
+    [
+      0,
+      974.917054,
+      664.433449
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "distortion": [
+    -0.037439,
+    -0.004983,
+    0.004292,
+    -0.002258
+  ],
+  "balance": 0.0,
+  "source": "https://github.com/chinitaberrio/M2S-RoAD/blob/main/toimage.py"
+}

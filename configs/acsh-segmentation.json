@@ -1,0 +1,17 @@
+{
+  "name": "parallel_stable_p2_acmix_s1130",
+  "task": "segment",
+  "seed": 1130,
+  "p2": true,
+  "acmix": true,
+  "p2_mode": "parallel",
+  "detail": false,
+  "kernel": 3,
+  "gate": 0.1,
+  "dice_weight": 0,
+  "mask_gain": 1,
+  "epochs": 60,
+  "imgsz": 768,
+  "recipe": {},
+  "stable_p2": true
+}

@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite the accompanying unpublished manuscript. No DOI or publication venue is assigned in this release."
+type: software
+title: "From Recognition to Measurement: Pothole Area Estimation through Local Road Geometry — Research Code"
+authors:
+  - family-names: Wang
+    given-names: Dehao
+  - family-names: Zhu
+    given-names: Haohang
+  - family-names: Xu
+    given-names: Bowen
+  - family-names: Xu
+    given-names: Yiwen
+  - family-names: Liu
+    given-names: Kaiqi
+license: AGPL-3.0-only
+repository-code: "https://github.com/Wonder-How/potholes_area_demo.github.io"
+keywords:
+  - pothole area estimation
+  - instance segmentation
+  - monocular depth
+  - local road geometry
+preferred-citation:
+  type: unpublished
+  title: "From Recognition to Measurement: Pothole Area Estimation through Local Road Geometry"
+  authors:
+    - family-names: Wang
+      given-names: Dehao
+    - family-names: Zhu
+      given-names: Haohang
+    - family-names: Xu
+      given-names: Bowen
+    - family-names: Xu
+      given-names: Yiwen
+    - family-names: Liu
+      given-names: Kaiqi
+  year: 2026
+  notes: "Unpublished manuscript. Publication metadata should be updated when an authoritative record becomes available."
