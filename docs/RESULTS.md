@@ -81,9 +81,9 @@ The timer covers stored-image read/decode, the full native-mask segmentation cal
 
 All 225 pairs / 1,095 predicted-box records have identical numeric outputs and calibrated areas, with 1,032 valid area outputs per implementation. Rectified images and depth input tensors also match across all 75 images. Repeated passes reuse the same scenes; these timings are not independent hardware replications or a sensing-to-control latency guarantee.
 
-## GIFs and display thresholds
+## Qualitative examples and display thresholds
 
-The README demo uses fresh lossless renders of the same cached qualitative examples, with the header title omitted in the original renderer. Display confidence remains **0.25**, rather than the evaluation operating point of **0.05**. It retains the existing predictions, displayed numbers and reference comparisons. The examples are independent annotated images with fixed holds; 10 FPS in the GIF describes playback only. It does not show continuous driving, tracking or measured inference throughput. See [the media manifest](assets/media_manifest.json) for source hashes, samples and transformations, including the additional archived video exports.
+The README presents a static five-row, four-column comparison using original examples **01, 02, 03 and 05**. Display confidence remains **0.25**, rather than the evaluation operating point of **0.05**. Each column retains the original example's predictions, displayed numbers and reference comparisons across all five stages. Selection considers recognition quality, area agreement and visual clarity while retaining scene variety. These are curated qualitative examples, not a representative benchmark sample. See [the comparison record](assets/area-comparison.json) for source hashes, crop coordinates and the output hash. Earlier animation records remain in [the archived media manifest](assets/media_manifest.json).
 
 The examples are curated visual explanations. Their errors cannot stand in for the full benchmark. Reference overlays labeled “GT” in the source presentations are manual annotations or LiDAR-derived references, not surveyed physical ground truth.
 

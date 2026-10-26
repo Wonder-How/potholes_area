@@ -1,0 +1,95 @@
+{
+  "layout": {
+    "rows": 5,
+    "columns": 4,
+    "size": [
+      2468,
+      2049
+    ]
+  },
+  "rows": [
+    {
+      "stage": "Original + GT",
+      "crop": [
+        36,
+        112,
+        600,
+        472
+      ],
+      "height": 472
+    },
+    {
+      "stage": "Segmentation + box",
+      "crop": [
+        660,
+        112,
+        600,
+        472
+      ],
+      "height": 472
+    },
+    {
+      "stage": "Predicted depth",
+      "crop": [
+        1284,
+        112,
+        600,
+        472
+      ],
+      "height": 472
+    },
+    {
+      "stage": "Road-plane fit",
+      "crop": [
+        36,
+        604,
+        900,
+        420
+      ],
+      "height": 280
+    },
+    {
+      "stage": "Final area",
+      "crop": [
+        960,
+        604,
+        924,
+        420
+      ],
+      "height": 273
+    }
+  ],
+  "columns": [
+    {
+      "column": 1,
+      "case_id": "01",
+      "source_sha256": "3b67736ad8866f79931b36f41dd6ec2fb6fde356bddc3188059aee5bf256fe6d"
+    },
+    {
+      "column": 2,
+      "case_id": "02",
+      "source_sha256": "cee6bd445cbf20dc0fc16a159e7f9fbbd82690d0d34f8571f177f5a59d3b2e6a"
+    },
+    {
+      "column": 3,
+      "case_id": "03",
+      "source_sha256": "f2b33ba04a2fa3af70c895877d5663e2e9502c2139a78ecc14d8242249b4ff6c"
+    },
+    {
+      "column": 4,
+      "case_id": "05",
+      "source_sha256": "14154bc9e323cb6b54b42a4191ef84d0a71a72d8395af032508e277881fb93ae"
+    }
+  ],
+  "transform": "Native cards cropped into a static grid. Last two rows resized proportionally. Original data, predictions, and displayed values retained.",
+  "selection": "Curated examples chosen jointly for recognition quality, area agreement, clear geometry and scene diversity. Qualitative display, not a representative benchmark sample.",
+  "original_case_order": [
+    "01",
+    "02",
+    "03",
+    "05"
+  ],
+  "generator": "scripts/make_demo_comparison.py",
+  "output": "area-comparison.png",
+  "sha256": "b6622ff6423b9c8e0374200c7abbc6aa3f0b4178c6d740d6ed3db768615f847f"
+}

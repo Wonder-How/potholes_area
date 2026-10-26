@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-r"""Build the README animation from bundled lossless frames.
+r"""Build the archived two-case animation from bundled lossless frames.
 
 Requires Python 3, ffmpeg and ffprobe. No Python packages are required.
 
-Rebuild the README GIF and preview without external data:
+Rebuild the archived two-case GIF and preview without external data:
     python scripts/make_demo_gifs.py --readme-only
 
 Also rebuild the archived GIFs from the original videos:
@@ -91,7 +91,7 @@ def probe(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--readme-only", action="store_true", help="Use bundled native frames to rebuild only the README GIF and preview; retain archived assets.")
+    parser.add_argument("--readme-only", action="store_true", help="Use bundled native frames to rebuild only the archived two-case GIF and preview; retain other archived assets.")
     parser.add_argument("--area-video", type=Path)
     parser.add_argument("--recognition-video", type=Path)
     parser.add_argument("--output-dir", type=Path, default=ASSET_DIR)
@@ -168,7 +168,7 @@ def main():
             "reference": "LiDAR-derived evaluation reference areas, not surveyed ground truth; used only for comparison.",
             "plane_panel": "Native rectified RGB projected onto the actual fitted road plane, predicted mask contour, unmodified SVD support points and projected-box outline; appearance projection, not cavity reconstruction.",
             "depth_panel": "Frozen monocular predicted metric depth, not GT depth; per-example finite-positive P2–P98 display scale, fixed within each example.",
-            "transforms": "The README GIF and preview are exported directly from bundled lossless native frames. The original renderer was rerun with only the main-title drawing call omitted, retaining its original uniform background. Each example is held for four seconds, downscaled with Lanczos and palette-quantized for 10 fps GIF playback. All other native pixels, predictions, numbers, panels and counters are unchanged. Archived GIFs retain their original video extraction, frame sampling, scaling and quantization.",
+            "transforms": "The archived two-case GIF and preview are exported directly from bundled lossless native frames. The original renderer was rerun with only the main-title drawing call omitted, retaining its original uniform background. Each example is held for four seconds, downscaled with Lanczos and palette-quantized for 10 fps GIF playback. All other native pixels, predictions, numbers, panels and counters are unchanged. Other archived GIFs retain their original video extraction, frame sampling, scaling and quantization.",
         },
         "area_cases": [
             {"case_id": case_id, "sample": sample, "source_start_seconds": i * 4, "source_duration_seconds": 4, "reference_area_m2": reference, "estimated_area_m2": estimate}

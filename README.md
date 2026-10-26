@@ -24,11 +24,10 @@ This repository packages the code, frozen ACSH checkpoint, camera configuration 
 ## See it in action
 
 <p align="center">
-  <img src="docs/assets/area-pipeline.gif" alt="Two original examples showing RGB, segmentation, depth, road-plane fit and calibrated area" width="960">
-  <br><sub><b>From image to pothole area.</b> Original image → recognition → metric depth → local plane → calibrated footprint.</sub>
+  <img src="docs/assets/area-comparison.png" alt="Five processing stages across four selected examples: original image, segmentation, depth, road-plane fit and calibrated area" width="100%">
 </p>
 
-The demo shows curated, independent test images at display confidence 0.25; the quantitative area benchmark uses 0.05. It estimates the **projected bounding-box footprint on the local road plane**.
+Four curated, independent test images are shown side by side at display confidence 0.25; the quantitative area benchmark uses 0.05. Each column follows the same example through five processing stages to the **projected bounding-box footprint on the local road plane**.
 
 ## How it works
 
@@ -123,8 +122,9 @@ The final controlled runtime study reports **243.63 → 154.02 ms/frame** (**1.5
 ├── src/pothole_measurement/  # Geometry, calibration, inference and training
 ├── configs/                 # Frozen ACSH recipe, M2S camera and area calibration
 ├── weights/                 # Released ACSH checkpoint and SHA-256 checksum
-├── docs/assets/             # Video demo, original paper figure and media manifest
-├── scripts/make_demo_gifs.py
+├── docs/assets/             # Static comparison, original paper figure and media records
+├── scripts/make_demo_comparison.py
+├── scripts/make_demo_gifs.py # Archived animation exports
 ├── tests/                   # Analytic geometry and training-only calibration checks
 └── docs/
     ├── implementation.md    # CLI, formats and implementation details
